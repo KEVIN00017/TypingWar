@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://luyuwylrf3v8"]
+
+[ext_resource type="Script" uid="uid://bct5q0oo7av71" path="res://Scripts/main.gd" id="1_kry3j"]
+[ext_resource type="PackedScene" uid="uid://cbbfegrghyny3" path="res://Scenes/space_time.tscn" id="2_8gbba"]
+[ext_resource type="Script" uid="uid://g2p3c5aivg1c" path="res://Scripts/del.gd" id="3_8gbba"]
+[ext_resource type="Texture2D" uid="uid://cocsfj3txhoiw" path="res://sprites/Background.png" id="4_jjvhh"]
+[ext_resource type="FontFile" uid="uid://duby6sms3ppfg" path="res://Fonts/VT323-400.ttf" id="4_kry3j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjvhh"]
+size = Vector2(1163, 18)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8gbba"]
+font = ExtResource("4_kry3j")
+font_size = 70
+font_color = Color(0.6156863, 0.43137255, 1, 1)
+shadow_color = Color(0, 1, 0, 1)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_kry3j")
+
+[node name="spaceTime" parent="." instance=ExtResource("2_8gbba")]
+position = Vector2(70, 571)
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("3_8gbba")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(576.5, 639)
+shape = SubResource("RectangleShape2D_jjvhh")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="Palavra" type="Label" parent="."]
+offset_left = 21.0
+offset_top = 104.0
+offset_right = 114.913055
+offset_bottom = 158.0
+label_settings = SubResource("LabelSettings_8gbba")
+
+[node name="Pontuacao" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 173.0
+offset_top = 536.0
+offset_right = 266.91306
+offset_bottom = 590.0
+text = "0"
+label_settings = SubResource("LabelSettings_8gbba")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(533, 143)
+texture = ExtResource("4_jjvhh")
+
+[connection signal="body_entered" from="spaceTime" to="." method="_on_space_time_body_entered"]
+[connection signal="body_entered" from="spaceTime" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="spaceTime" to="." method="_on_body_exited"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="request_completed" from="HTTPRequest" to="spaceTime" method="_on_http_request_request_completed"]
+
+[editable path="spaceTime"]

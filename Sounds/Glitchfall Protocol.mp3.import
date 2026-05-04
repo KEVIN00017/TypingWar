@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d34ja2wicbg4m"
+path="res://.godot/imported/Glitchfall Protocol.mp3-466beef19fe25e056485af9925165a63.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Glitchfall Protocol.mp3"
+dest_files=["res://.godot/imported/Glitchfall Protocol.mp3-466beef19fe25e056485af9925165a63.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

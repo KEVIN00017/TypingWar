@@ -1,0 +1,260 @@
+[gd_scene load_steps=33 format=3 uid="uid://luyuwylrf3v8"]
+
+[ext_resource type="Script" uid="uid://bct5q0oo7av71" path="res://Scripts/main.gd" id="1_kry3j"]
+[ext_resource type="PackedScene" uid="uid://cbbfegrghyny3" path="res://Scenes/space_time.tscn" id="2_8gbba"]
+[ext_resource type="Script" uid="uid://g2p3c5aivg1c" path="res://Scripts/del.gd" id="3_8gbba"]
+[ext_resource type="Texture2D" uid="uid://cocsfj3txhoiw" path="res://sprites/Background.png" id="4_jjvhh"]
+[ext_resource type="FontFile" uid="uid://duby6sms3ppfg" path="res://Fonts/VT323-400.ttf" id="4_kry3j"]
+[ext_resource type="Texture2D" uid="uid://3m7esft3ctmy" path="res://sprites/TV.png" id="6_21xkr"]
+[ext_resource type="PackedScene" uid="uid://cs0mgmjojottd" path="res://Scenes/main_person.tscn" id="7_6bp64"]
+[ext_resource type="Texture2D" uid="uid://c035ad7o2fbu2" path="res://sprites/spheres.png" id="8_344ge"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjvhh"]
+size = Vector2(1163, 18)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8gbba"]
+font = ExtResource("4_kry3j")
+font_size = 90
+font_color = Color(1, 0.8651864, 0.101462044, 1)
+shadow_color = Color(0.71707517, 0, 0.20440134, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kry3j"]
+font = ExtResource("4_kry3j")
+font_size = 80
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_kry3j"]
+specular_color = Color(0.15, 0.15, 0.15, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_21xkr"]
+specular_color = Color(0.58, 0.58, 0.58, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynf5e"]
+atlas = ExtResource("8_344ge")
+region = Rect2(0, 0, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hptm8"]
+atlas = ExtResource("8_344ge")
+region = Rect2(16, 0, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1ilt"]
+atlas = ExtResource("8_344ge")
+region = Rect2(32, 0, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6iyac"]
+atlas = ExtResource("8_344ge")
+region = Rect2(48, 0, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdnlq"]
+atlas = ExtResource("8_344ge")
+region = Rect2(64, 0, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkdf5"]
+atlas = ExtResource("8_344ge")
+region = Rect2(80, 0, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsu2k"]
+atlas = ExtResource("8_344ge")
+region = Rect2(96, 0, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k12tt"]
+atlas = ExtResource("8_344ge")
+region = Rect2(112, 0, 16, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h1bgf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynf5e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hptm8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1ilt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6iyac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdnlq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkdf5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wsu2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k12tt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3802"]
+atlas = ExtResource("8_344ge")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fevyy"]
+atlas = ExtResource("8_344ge")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hibaj"]
+atlas = ExtResource("8_344ge")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdsj5"]
+atlas = ExtResource("8_344ge")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ee4r6"]
+atlas = ExtResource("8_344ge")
+region = Rect2(64, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gt3je"]
+atlas = ExtResource("8_344ge")
+region = Rect2(80, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pmx8"]
+atlas = ExtResource("8_344ge")
+region = Rect2(96, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u50mg"]
+atlas = ExtResource("8_344ge")
+region = Rect2(112, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cbgmd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3802")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fevyy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hibaj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdsj5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ee4r6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gt3je")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pmx8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u50mg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_344ge"]
+font = ExtResource("4_kry3j")
+font_size = 90
+font_color = Color(1, 0.83, 0.83, 1)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_kry3j")
+
+[node name="spaceTime" parent="." instance=ExtResource("2_8gbba")]
+position = Vector2(101, 570)
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("3_8gbba")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(576.5, 639)
+shape = SubResource("RectangleShape2D_jjvhh")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="Palavra" type="Label" parent="."]
+offset_left = 43.0
+offset_top = 97.0
+offset_right = 300.0
+offset_bottom = 167.0
+label_settings = SubResource("LabelSettings_8gbba")
+
+[node name="Pontuacao" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 369.0
+offset_top = 523.0
+offset_right = 462.9131
+offset_bottom = 613.0
+text = "0"
+label_settings = SubResource("LabelSettings_8gbba")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(574, 254.00002)
+scale = Vector2(0.7630413, 0.79785156)
+texture = ExtResource("4_jjvhh")
+
+[node name="STATUS" type="Label" parent="."]
+offset_left = 50.0
+offset_top = 342.0
+offset_right = 90.0
+offset_bottom = 422.0
+label_settings = SubResource("LabelSettings_kry3j")
+
+[node name="Background2" type="Sprite2D" parent="."]
+modulate = Color(1.7834777, 1.7834777, 1.7834777, 1)
+self_modulate = Color(0.10535059, 0.09173178, 0, 0.7176471)
+z_index = -4
+position = Vector2(270.57294, 324.64105)
+scale = Vector2(-552.39197, 655.218)
+texture = SubResource("CanvasTexture_kry3j")
+
+[node name="Background3" type="Sprite2D" parent="."]
+modulate = Color(0.1, 0.07, 0, 0.6901961)
+z_index = -3
+position = Vector2(270.5, 142.75)
+scale = Vector2(549, 286.5)
+texture = SubResource("CanvasTexture_21xkr")
+
+[node name="Tv" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(273.1696, 134.57602)
+scale = Vector2(0.45290416, 0.38589063)
+texture = ExtResource("6_21xkr")
+
+[node name="MainPerson" parent="." instance=ExtResource("7_6bp64")]
+position = Vector2(634, 568)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(298, 489)
+scale = Vector2(2.303576, 2.303576)
+sprite_frames = SubResource("SpriteFrames_h1bgf")
+autoplay = "default"
+frame_progress = 0.021714611
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(299, 574)
+scale = Vector2(2.4687498, 2.4687498)
+sprite_frames = SubResource("SpriteFrames_cbgmd")
+autoplay = "default"
+
+[node name="Vida" type="Label" parent="."]
+offset_left = 368.0
+offset_top = 443.0
+offset_right = 430.0
+offset_bottom = 533.0
+text = "0"
+label_settings = SubResource("LabelSettings_344ge")
+
+[connection signal="body_entered" from="spaceTime" to="." method="_on_space_time_body_entered"]
+[connection signal="body_entered" from="spaceTime" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="spaceTime" to="." method="_on_body_exited"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="request_completed" from="HTTPRequest" to="spaceTime" method="_on_http_request_request_completed"]
+
+[editable path="spaceTime"]
+[editable path="MainPerson"]
