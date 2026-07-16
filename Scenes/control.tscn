@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://d35oskuh2udh8"]
+
+[ext_resource type="Script" uid="uid://bdd8ekqr5hxll" path="res://Scripts/control.gd" id="1_sjmnu"]
+[ext_resource type="Texture2D" uid="uid://djg7sdsy0kw1a" path="res://sprites/Martial Hero/Sprites/TypingWarMenu.png" id="2_cgmvo"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_sjmnu")
+
+[node name="jogar" type="Button" parent="."]
+modulate = Color(0.40029126, 0.7537528, 1, 1)
+self_modulate = Color(3.125041, 8.572722e-05, 2.9521956e-05, 1)
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1153.0
+offset_bottom = 654.0
+action_mode = 0
+text = "JOGAR"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(537, 389.5)
+scale = Vector2(0.9746835, 0.9275535)
+texture = ExtResource("2_cgmvo")
+
+[connection signal="pressed" from="jogar" to="." method="_on_jogar_pressed"]

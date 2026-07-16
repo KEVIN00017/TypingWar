@@ -2,15 +2,18 @@ extends CharacterBody2D
 
 
 const SPEED = -40.0
-const JUMP_VELOCITY = -400.0
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 
 func _ready() -> void:
+
 	add_to_group("Enemy")
 	Global.PositionEnemy=global_position
 	
 func _physics_process(delta: float) -> void:
-
+	if Global.LIFE <=0:
+		sprite_2d.play("Death")
+		await get_tree().create_timer(1).timeout
+		queue_free()
 	move(delta)
 
 
@@ -22,7 +25,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func move(delta):
 	move_and_collide(Vector2(SPEED*delta,0))
-	move_toward(global_position.x,Global.PositionMain,SPEED)
+	
 
 
 

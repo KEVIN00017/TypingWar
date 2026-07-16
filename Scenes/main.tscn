@@ -1,8 +1,9 @@
-[gd_scene load_steps=36 format=3 uid="uid://luyuwylrf3v8"]
+[gd_scene load_steps=37 format=3 uid="uid://luyuwylrf3v8"]
 
 [ext_resource type="Script" uid="uid://bct5q0oo7av71" path="res://Scripts/main.gd" id="1_kry3j"]
 [ext_resource type="PackedScene" uid="uid://cbbfegrghyny3" path="res://Scenes/space_time.tscn" id="2_8gbba"]
 [ext_resource type="Script" uid="uid://g2p3c5aivg1c" path="res://Scripts/del.gd" id="3_8gbba"]
+[ext_resource type="Texture2D" uid="uid://dkgmbjija1r0e" path="res://sprites/buttons.png" id="3_hptm8"]
 [ext_resource type="Texture2D" uid="uid://cocsfj3txhoiw" path="res://sprites/Background.png" id="4_jjvhh"]
 [ext_resource type="FontFile" uid="uid://duby6sms3ppfg" path="res://Fonts/VT323-400.ttf" id="4_kry3j"]
 [ext_resource type="Texture2D" uid="uid://3m7esft3ctmy" path="res://sprites/TV.png" id="6_21xkr"]
@@ -178,7 +179,17 @@ script = ExtResource("1_kry3j")
 position = Vector2(101, 570)
 
 [node name="Sprite2D" parent="spaceTime" index="0"]
-texture = null
+modulate = Color(0.51651007, 0.54, 0.0702, 1)
+self_modulate = Color(4.327094, 3.510859, 8.408274, 1)
+z_index = 15
+position = Vector2(-361, -165)
+scale = Vector2(9.009237, 7.2401505)
+texture = ExtResource("3_hptm8")
+centered = false
+hframes = 6
+
+[node name="CollisionShape2D" parent="spaceTime" index="1"]
+position = Vector2(-8, -2)
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("3_8gbba")
@@ -209,7 +220,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -5
-position = Vector2(574, 254.00002)
+position = Vector2(570.00006, 250)
 scale = Vector2(0.7630413, 0.79785156)
 texture = ExtResource("4_jjvhh")
 
@@ -273,15 +284,11 @@ animation = &"Idle"
 [node name="CollisionShape2D" parent="CharacterBody2D" index="1"]
 visibility_layer = 1
 
-[node name="CollisionShape2D" parent="CharacterBody2D/Area2D" index="0"]
-visibility_layer = 1
-
 [node name="PalavraEN" type="Label" parent="."]
 offset_left = 43.0
 offset_top = 134.0
 offset_right = 223.0
 offset_bottom = 224.0
-text = "AAAAA"
 label_settings = SubResource("LabelSettings_ynf5e")
 metadata/_edit_use_anchors_ = true
 
@@ -292,7 +299,7 @@ parameters/looping = true
 
 [node name="Tv2" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(972.99994, 577)
+position = Vector2(1177, 579)
 scale = Vector2(0.050022174, 0.053833034)
 texture = ExtResource("6_21xkr")
 

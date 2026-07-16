@@ -22,7 +22,6 @@ var path="http://localhost:3250/api/getWorld"
 @onready var pontuacao: Label = $Pontuacao
 @onready var area: Sprite2D = $spaceTime/Sprite2D2
 @onready var status: Label = $STATUS
-
 @onready var vida: Label = $Vida
 @onready var Enemy: AnimatedSprite2D = $CharacterBody2D/Sprite2D
 @onready var palavra_en: Label = $PalavraEN
@@ -31,6 +30,7 @@ var path="http://localhost:3250/api/getWorld"
 @onready var spawn_timer: Timer = $SpawnTimer
 @onready var http_request: HTTPRequest = $HTTPRequest
 @onready var lvl: Label = $LVL
+@onready var button: Sprite2D = $spaceTime/Sprite2D
 
 
 
@@ -73,23 +73,21 @@ func SpawnLetter():
 
 			var WordInst = Scene.instantiate()
 			
-			WordInst.position = Vector2((label.global_position.x+45), 0)
+			WordInst.position = Vector2((label.global_position.x+90), 0)
 
 			add_child(WordInst)
-
 			
 			WordInst.ControlLetter(ListLetter[i].to_upper())
-
 			i += 1
 			Global.Letter = true
 
 		else:
-			#Palavra traduzida do inglês será mostrada aqui!
+		
 			NextWord=true	
 			
 			SumSpeed(Global.SPEED)
 			
-
+			End-=1
 			i = 0
 			w += 1
 
@@ -108,13 +106,14 @@ func SwitchWord(word_index: int):
 		
 		for l in MainWord:
 			ListLetter.append(l)
+			
 		NextWord=false
+		
 func Del(tecla: String, body):
 
 	if body == null or not is_instance_valid(body):
-		area.modulate=Color.RED
-		await get_tree().create_timer(0.2).timeout
-		area.modulate=Color(0.20,0.14,0.36,0.70)
+		Hero_Inst.STATUS(status,area,"BAD!",Color.RED,4,button)
+
 	
 		
 		return
@@ -124,9 +123,9 @@ func Del(tecla: String, body):
 
 	
 	else:
-		area.modulate=Color.RED
+#		area.modulate=Color.RED
 		await get_tree().create_timer(0.2).timeout
-		area.modulate=Color(0.20,0.14,0.36,0.70)
+#		area.modulate=Color(0.20,0.14,0.36,0.70)
 	
 func calc(posiY):
 	
@@ -136,18 +135,18 @@ func calc(posiY):
 	
 	if Distancia < 10 and Distancia>-10:
 		Global.Points+=30
-		Hero_Inst.Attack(Color.GREEN,"PERFECT! +30",area,status)
+		Hero_Inst.Attack(Color.GREEN,"PERFECT! +30",area,status,1,button)
 
 	elif Distancia <= 30 and Distancia >= -30:
 
 		Global.Points+=20
 
-		Hero_Inst.Attack(Color.YELLOW,"GOOD +20",area,status)
+		Hero_Inst.Attack(Color.REBECCA_PURPLE,"GOOD +20",area,status,2,button)
 
 
 	else:
 		Global.Points+=10
-		Hero_Inst.Attack(Color.ORANGE,"MISS +10",area,status)
+		Hero_Inst.Attack(Color.ORANGE,"MISS +10",area,status,3,button)
 func _on_body_entered(body: Node2D) -> void:
 
 	Body=body
@@ -162,11 +161,12 @@ func ShowWorlds():
 	palavra_en.text=ListWords[w]["WorldEN"].to_upper()
 	vida.text=str(Global.LIFE)
 	pontuacao.text=str(Global.Points)
-	lvl.text=str(ListWords[w]["LVL"])
+	
 func inst(instanciate,posiInst):
 	if Global.LIFE >0:
 		instanciate.position = posiInst
 		add_child(instanciate)
+		
 func _on_spawn_timer_timeout() -> void:
 		inst(SceneEnemy.instantiate(), $Tv2.global_position)
 		spawn_timer.wait_time = randf_range(start, End)

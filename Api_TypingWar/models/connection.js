@@ -7,7 +7,7 @@ const ConnectDB = async () => {
   } catch (error) {
     console.error("Erro real:", error.message);
     process.exit(1);
-  }
+  } 
 };
 
 export default ConnectDB;

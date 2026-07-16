@@ -268,6 +268,7 @@ size = Vector2(77.5, 31)
 
 [node name="MainPerson" type="CharacterBody2D"]
 position = Vector2(631, 565)
+collision_mask = 2
 script = ExtResource("1_xooq0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -282,6 +283,7 @@ position = Vector2(-12, 5)
 shape = SubResource("CapsuleShape2D_mrmju")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(61, 0)

@@ -4,24 +4,30 @@
 [ext_resource type="FontFile" uid="uid://duby6sms3ppfg" path="res://Fonts/VT323-400.ttf" id="2_ifkci"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ifkci"]
-size = Vector2(36.5, 23)
+size = Vector2(98.5, 28)
 
 [sub_resource type="LabelSettings" id="LabelSettings_eb40e"]
 font = ExtResource("2_ifkci")
 font_size = 50
 font_color = Color(0, 1, 0.6117647, 1)
-shadow_color = Color(0, 0, 1, 1)
+outline_size = 20
+outline_color = Color(0.27675003, 0.5, 0.265, 0.3647059)
+shadow_size = 20
+shadow_color = Color(0.051496208, 0.051496208, 0.28000465, 1)
 
 [node name="Word" type="CharacterBody2D"]
-position = Vector2(505, 0)
+position = Vector2(362, 62)
 script = ExtResource("1_ifkci")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(18.75, 10)
+position = Vector2(-3.25, -1)
 shape = SubResource("RectangleShape2D_ifkci")
 
 [node name="Letter" type="Label" parent="."]
-offset_right = 37.0
-offset_bottom = 23.0
+z_index = 20
+offset_left = -53.0
+offset_top = -29.0
+offset_right = 47.0
+offset_bottom = 21.0
 text = "assad"
 label_settings = SubResource("LabelSettings_eb40e")

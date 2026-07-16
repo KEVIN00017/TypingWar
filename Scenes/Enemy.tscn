@@ -106,7 +106,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("21_2r2pf")
 }],
-"loop": true,
+"loop": false,
 "name": &"Death",
 "speed": 10.0
 }, {
@@ -178,12 +178,13 @@ size = Vector2(28, 60)
 
 [node name="Enemy" type="CharacterBody2D"]
 position = Vector2(192, 201)
+collision_layer = 2
 script = ExtResource("1_c8a7u")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2, -1)
 sprite_frames = SubResource("SpriteFrames_5yix0")
-animation = &"Attack"
+animation = &"Death"
 autoplay = "Walk"
 offset = Vector2(-35, -19)
 
@@ -193,10 +194,10 @@ visibility_layer = 2
 shape = SubResource("CapsuleShape2D_xju7k")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 light_mask = 2
-visibility_layer = 2
 position = Vector2(-36, 2)
 shape = SubResource("RectangleShape2D_ntwgn")
 

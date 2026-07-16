@@ -7,4 +7,4 @@
     })
 
     const GameDATA=mongoose.model("Game",UserSchema)
-    export default GameDATA  
+    export default GameDATA    
