@@ -20,19 +20,18 @@ var End:=5.0
 var path="http://localhost:3250/api/getWorld"
 @onready var label: Label = $Palavra
 @onready var pontuacao: Label = $Pontuacao
-@onready var area: Sprite2D = $spaceTime/Sprite2D2
+@onready var area: Sprite2D 
 @onready var status: Label = $STATUS
 @onready var vida: Label = $Vida
 @onready var Enemy: AnimatedSprite2D = $CharacterBody2D/Sprite2D
 @onready var palavra_en: Label = $PalavraEN
-@onready var collision_shape_2d: CollisionShape2D = $MainPerson/Area2D/CollisionShape2D
+@onready var collision_shape_2d: CollisionShape2D 
 @onready var space_time: Area2D = $spaceTime
 @onready var spawn_timer: Timer = $SpawnTimer
 @onready var http_request: HTTPRequest = $HTTPRequest
 @onready var lvl: Label = $LVL
 @onready var button: Sprite2D = $spaceTime/Sprite2D
-
-
+@onready var recorde: Label = $Recorde
 
 func _ready() -> void:
 	http_request.request(path)
@@ -122,10 +121,6 @@ func Del(tecla: String, body):
 		calc(Posi)
 
 	
-	else:
-#		area.modulate=Color.RED
-		await get_tree().create_timer(0.2).timeout
-#		area.modulate=Color(0.20,0.14,0.36,0.70)
 	
 func calc(posiY):
 	
@@ -161,7 +156,7 @@ func ShowWorlds():
 	palavra_en.text=ListWords[w]["WorldEN"].to_upper()
 	vida.text=str(Global.LIFE)
 	pontuacao.text=str(Global.Points)
-	
+	recorde.text=str(Global.recorde)
 func inst(instanciate,posiInst):
 	if Global.LIFE >0:
 		instanciate.position = posiInst
@@ -169,8 +164,9 @@ func inst(instanciate,posiInst):
 		
 func _on_spawn_timer_timeout() -> void:
 		inst(SceneEnemy.instantiate(), $Tv2.global_position)
-		spawn_timer.wait_time = randf_range(start, End)
-		spawn_timer.start() 
+		if(End>0):
+			spawn_timer.wait_time = randf_range(start, End)
+			spawn_timer.start() 
 
 	
 	
@@ -189,4 +185,3 @@ func _on_http_request_request_completed(result: int, response_code: int, headers
 
 	var data = json.data  
 	ListWords=data
-		
