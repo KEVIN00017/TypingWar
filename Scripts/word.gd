@@ -8,5 +8,6 @@ func _physics_process(delta: float) -> void:
 
 func ControlLetter(char:String):
 	letter.text=char
+	Global.show_word_en+=char
 	letter.add_theme_font_size_override("font_size", 100)
 	

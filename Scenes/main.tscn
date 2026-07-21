@@ -328,11 +328,13 @@ offset_bottom = 377.0
 label_settings = SubResource("LabelSettings_hptm8")
 
 [node name="Recorde" type="Label" parent="." unique_id=145666026]
-offset_left = 759.0
-offset_top = 81.0
-offset_right = 799.0
-offset_bottom = 211.0
+offset_left = 548.0
+offset_top = 5.0
+offset_right = 1152.0
+offset_bottom = 300.0
 label_settings = SubResource("LabelSettings_d1ilt")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="spaceTime" to="." method="_on_space_time_body_entered"]
 [connection signal="body_entered" from="spaceTime" to="." method="_on_body_entered"]

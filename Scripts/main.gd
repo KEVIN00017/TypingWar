@@ -89,7 +89,7 @@ func SpawnLetter():
 			End-=1
 			i = 0
 			w += 1
-
+			Global.show_word_en=""
 			if w >= ListWords.size():
 				w = 0  
 
@@ -153,10 +153,11 @@ func SumSpeed(currentSpeed):
 		Global.SPEED+=50
 func ShowWorlds():
 	label.text=ListWords[w]["WorldPT"].to_upper()
-	palavra_en.text=ListWords[w]["WorldEN"].to_upper()
+	palavra_en.text=Global.show_word_en
 	vida.text=str(Global.LIFE)
 	pontuacao.text=str(Global.Points)
 	recorde.text=str(Global.recorde)
+	
 func inst(instanciate,posiInst):
 	if Global.LIFE >0:
 		instanciate.position = posiInst

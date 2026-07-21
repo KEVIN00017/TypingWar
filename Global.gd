@@ -6,3 +6,4 @@ var recorde := 0
 var LIFE:=33
 var PositionMain:=0
 var PositionEnemy:Vector2
+var show_word_en := ""
