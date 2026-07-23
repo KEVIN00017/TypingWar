@@ -1,7 +1,5 @@
 extends Control
 
-
-
 func _ready() -> void:
 	Global.SPEED=200
 	Global.Letter=false

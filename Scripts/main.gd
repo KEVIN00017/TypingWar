@@ -32,11 +32,15 @@ var path="http://localhost:3250/api/getWorld"
 @onready var lvl: Label = $LVL
 @onready var button: Sprite2D = $spaceTime/Sprite2D
 @onready var recorde: Label = $Recorde
+@onready var letter_position: Marker2D = $letter_position
+@onready var hero_position: Marker2D = $hero_position
 
 func _ready() -> void:
 	http_request.request(path)
 	print(ListWords)
+	Hero_Inst.position=Vector2(hero_position.global_position.x,hero_position.global_position.y)
 	add_child(Hero_Inst)
+
 	if ListWords.size() > 0:
 		ShowWorlds()
 		SpawnLetter()
@@ -48,7 +52,7 @@ func _process(delta: float) -> void:
 	if Global.SPEED > 700 and NextWord:
 		DificultEnemy-=50
 	if Body !=null:
-		Posi=Body.global_position.y
+		Posi=Body.global_position.x
 	if ListWords.size() > 0:
 		ShowWorlds()
 		SpawnLetter()
@@ -72,7 +76,7 @@ func SpawnLetter():
 
 			var WordInst = Scene.instantiate()
 			
-			WordInst.position = Vector2((label.global_position.x+90), 0)
+			WordInst.position = Vector2((letter_position.global_position.x+90), letter_position.global_position.y)
 
 			add_child(WordInst)
 			
@@ -122,26 +126,28 @@ func Del(tecla: String, body):
 
 	
 	
-func calc(posiY):
+func calc(posiX):
 	
-	var Distancia = (space_time.global_position.y - posiY)
+	var Distancia = (space_time.global_position.x - posiX)
 	
 
 	
-	if Distancia < 10 and Distancia>-10:
+	if Distancia <= -16 and Distancia>-35:
 		Global.Points+=30
 		Hero_Inst.Attack(Color.GREEN,"PERFECT! +30",area,status,1,button)
-
-	elif Distancia <= 30 and Distancia >= -30:
-
+		print(Distancia)
+	elif Distancia <= 10 and Distancia >= -50:
+		print(Distancia)
 		Global.Points+=20
 
 		Hero_Inst.Attack(Color.REBECCA_PURPLE,"GOOD +20",area,status,2,button)
 
 
 	else:
+		print(Distancia)
 		Global.Points+=10
 		Hero_Inst.Attack(Color.ORANGE,"MISS +10",area,status,3,button)
+		
 func _on_body_entered(body: Node2D) -> void:
 
 	Body=body
@@ -149,7 +155,7 @@ func _on_body_exited(body: Node2D) -> void:
 	SwitchWord(w)
 	Body=null
 func SumSpeed(currentSpeed):
-	if currentSpeed <=750:
+	if currentSpeed <=650:
 		Global.SPEED+=50
 func ShowWorlds():
 	label.text=ListWords[w]["WorldPT"].to_upper()
@@ -171,7 +177,6 @@ func _on_spawn_timer_timeout() -> void:
 
 	
 	
-
 
 func _on_http_request_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
 

@@ -18,17 +18,17 @@ size = Vector2(93, 645)
 font = ExtResource("4_kry3j")
 font_size = 90
 font_color = Color(1, 0.8651864, 0.101462044, 1)
-shadow_size = 15
-shadow_color = Color(0.19914642, 0.2310158, 0.03589151, 1)
+shadow_color = Color(0.71707517, 0, 0.20440134, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_kry3j"]
 font = ExtResource("4_kry3j")
-font_size = 70
-outline_color = Color(0.68637705, 0.68637705, 2.514498, 1)
-shadow_color = Color(0.7019608, 1, 0.09411765, 1)
+font_size = 80
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_kry3j"]
 specular_color = Color(0.15, 0.15, 0.15, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_21xkr"]
+specular_color = Color(0.58, 0.58, 0.58, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ynf5e"]
 atlas = ExtResource("8_344ge")
@@ -162,8 +162,6 @@ animations = [{
 font = ExtResource("4_kry3j")
 font_size = 90
 font_color = Color(1, 0.83, 0.83, 1)
-shadow_size = 10
-shadow_color = Color(0.3974819, 2.0816549e-06, 1.0348111e-06, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ynf5e"]
 font = ExtResource("4_kry3j")
@@ -176,7 +174,7 @@ font_size = 90
 
 [sub_resource type="LabelSettings" id="LabelSettings_d1ilt"]
 font = ExtResource("4_kry3j")
-font_size = 90
+font_size = 130
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 27
 shadow_color = Color(0.03706042, 0.2097264, 0.0019038359, 1)
@@ -212,20 +210,19 @@ shape = SubResource("RectangleShape2D_jjvhh")
 [node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=840258168]
 
 [node name="Palavra" type="Label" parent="." unique_id=1481084029]
-offset_left = 259.0
-offset_top = 279.0
-offset_right = 516.0
-offset_bottom = 369.0
+offset_left = 279.0
+offset_top = 292.0
+offset_right = 536.0
+offset_bottom = 382.0
 label_settings = SubResource("LabelSettings_8gbba")
-horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Pontuacao" type="Label" parent="." unique_id=1932944516]
 unique_name_in_owner = true
-offset_left = 817.75
-offset_top = 194.0
-offset_right = 911.6631
-offset_bottom = 284.0
+offset_left = 598.0
+offset_top = 299.0
+offset_right = 691.9131
+offset_bottom = 389.0
 text = "0"
 label_settings = SubResource("LabelSettings_8gbba")
 metadata/_edit_use_anchors_ = true
@@ -237,11 +234,10 @@ scale = Vector2(0.83598524, 0.6357422)
 texture = ExtResource("4_jjvhh")
 
 [node name="STATUS" type="Label" parent="." unique_id=322468584]
-modulate = Color(1, 1, 1, 0.57254905)
-offset_left = 630.0
-offset_top = 399.0
-offset_right = 670.0
-offset_bottom = 479.0
+offset_left = 50.0
+offset_top = 342.0
+offset_right = 90.0
+offset_bottom = 422.0
 label_settings = SubResource("LabelSettings_kry3j")
 metadata/_edit_use_anchors_ = true
 
@@ -249,35 +245,56 @@ metadata/_edit_use_anchors_ = true
 modulate = Color(1.7834777, 1.7834777, 1.7834777, 1)
 self_modulate = Color(0.10535059, 0.09173178, 0, 0.7176471)
 z_index = -4
-position = Vector2(659.7904, 434.2947)
-scale = Vector2(-985.58075, 110.58944)
+position = Vector2(499.54462, 434.2947)
+scale = Vector2(-665.0892, 110.58944)
 texture = SubResource("CanvasTexture_kry3j")
 metadata/_edit_group_ = true
 
+[node name="Background4" type="Sprite2D" parent="." unique_id=1633976512]
+modulate = Color(1.7834777, 1.7834777, 1.7834777, 1)
+self_modulate = Color(0, 0.25640088, 0.116178386, 0.44313726)
+z_index = -4
+position = Vector2(1704, 206)
+scale = Vector2(-607.5313, 298.83502)
+texture = SubResource("CanvasTexture_kry3j")
+
+[node name="Background3" type="Sprite2D" parent="." unique_id=212150270]
+modulate = Color(0.1, 0.07, 0, 0.6901961)
+z_index = -3
+position = Vector2(1709, 205)
+scale = Vector2(549, 286.5)
+texture = SubResource("CanvasTexture_21xkr")
+
+[node name="Tv" type="Sprite2D" parent="." unique_id=1876534338]
+z_index = -2
+position = Vector2(1693.9999, 198)
+scale = Vector2(0.45290416, 0.38589063)
+texture = ExtResource("6_21xkr")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=603535596]
-position = Vector2(665.00006, 239.00002)
+position = Vector2(498, 346.00003)
 scale = Vector2(2.303576, 2.303576)
 sprite_frames = SubResource("SpriteFrames_h1bgf")
 autoplay = "default"
 frame_progress = 0.021714611
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1572508593]
-position = Vector2(793.00006, 241.00002)
+position = Vector2(666, 342)
 scale = Vector2(2.4687498, 2.4687498)
 sprite_frames = SubResource("SpriteFrames_cbgmd")
 autoplay = "default"
 
 [node name="Vida" type="Label" parent="." unique_id=1995166473]
-offset_left = 697.75
-offset_top = 195.0
-offset_right = 759.75
-offset_bottom = 285.0
+offset_left = 529.0
+offset_top = 298.0
+offset_right = 591.0
+offset_bottom = 388.0
 text = "0"
 label_settings = SubResource("LabelSettings_344ge")
 metadata/_edit_use_anchors_ = true
 
 [node name="CharacterBody2D" parent="." unique_id=149660244 instance=ExtResource("9_ynf5e")]
-position = Vector2(889, 591)
+position = Vector2(893, 583)
 
 [node name="Sprite2D" parent="CharacterBody2D" index="0"]
 animation = &"Idle"
@@ -301,7 +318,7 @@ parameters/looping = true
 
 [node name="Tv2" type="Sprite2D" parent="." unique_id=1833856791]
 visible = false
-position = Vector2(684, 592)
+position = Vector2(1177, 579)
 scale = Vector2(0.050022174, 0.053833034)
 texture = ExtResource("6_21xkr")
 
@@ -315,16 +332,16 @@ offset_bottom = 377.0
 label_settings = SubResource("LabelSettings_hptm8")
 
 [node name="Recorde" type="Label" parent="." unique_id=145666026]
-offset_left = 253.0
-offset_top = 172.0
-offset_right = 519.16943
-offset_bottom = 302.0
+offset_left = 548.0
+offset_top = 5.0
+offset_right = 1152.0
+offset_bottom = 300.0
 label_settings = SubResource("LabelSettings_d1ilt")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="letter_position" type="Marker2D" parent="." unique_id=1589831484]
-position = Vector2(686, 428)
+position = Vector2(1140, 428)
 metadata/_edit_group_ = true
 
 [node name="hero_position" type="Marker2D" parent="." unique_id=427879111]

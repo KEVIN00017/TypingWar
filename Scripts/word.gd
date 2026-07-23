@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 
 func _physics_process(delta: float) -> void:
-	move_and_collide(Vector2(0,Global.SPEED*delta))
+	move_and_collide(Vector2( -Global.SPEED*delta,0))
 
 func ControlLetter(char:String):
 	letter.text=char

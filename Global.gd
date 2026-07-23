@@ -1,5 +1,5 @@
 extends Node
-var SPEED:=200
+var SPEED:= 200
 var Letter:=false
 var Points:=0
 var recorde := 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://cs0mgmjojottd"]
+[gd_scene format=3 uid="uid://cs0mgmjojottd"]
 
 [ext_resource type="Texture2D" uid="uid://ceakqypq6gagh" path="res://sprites/Martial Hero/Sprites/Idle.png" id="1_hywqu"]
 [ext_resource type="Script" uid="uid://dq181wb7wf1fn" path="res://Scripts/main_person.gd" id="1_xooq0"]
@@ -266,30 +266,34 @@ height = 74.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xooq0"]
 size = Vector2(77.5, 31)
 
-[node name="MainPerson" type="CharacterBody2D"]
-position = Vector2(631, 565)
+[node name="MainPerson" type="CharacterBody2D" unique_id=1762326923]
+position = Vector2(631, 574)
 collision_mask = 2
 script = ExtResource("1_xooq0")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2124394980]
 position = Vector2(-14, 9)
 scale = Vector2(1.325, 1.295)
 sprite_frames = SubResource("SpriteFrames_l8ioo")
 animation = &"Attack"
 autoplay = "Idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1612338216]
 position = Vector2(-12, 5)
 shape = SubResource("CapsuleShape2D_mrmju")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=1200268698]
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1020130818]
 position = Vector2(61, 0)
 shape = SubResource("RectangleShape2D_xooq0")
 disabled = true
 one_way_collision_margin = 0.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=398025032]
+position = Vector2(363, -151)
+zoom = Vector2(1.4, 1.4)
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
