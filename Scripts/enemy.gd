@@ -15,7 +15,12 @@ func _physics_process(delta: float) -> void:
 		await get_tree().create_timer(1).timeout
 		queue_free()
 	move(delta)
-
+	if Global.COMBO:
+		print("CAIU NO COMBO :",Global.letter_total," ",Global.COMBO)
+		sprite_2d.play("Death")
+		await get_tree().create_timer(1).timeout
+		Global.COMBO=false
+		queue_free()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Hero") and Global.LIFE > 0 and body.get_node("AnimatedSprite2D").animation!="Attack" and body.get_node("AnimatedSprite2D").animation!="Death":

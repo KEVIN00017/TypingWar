@@ -34,6 +34,10 @@ var path="http://localhost:3250/api/getWorld"
 @onready var recorde: Label = $Recorde
 @onready var letter_position: Marker2D = $letter_position
 @onready var hero_position: Marker2D = $hero_position
+@onready var combo: Label = $COMBO
+var bad:=false
+var liberar_combo=false
+
 
 func _ready() -> void:
 	http_request.request(path)
@@ -49,13 +53,22 @@ func _ready() -> void:
 	spawn_timer.start()
 	
 func _process(delta: float) -> void:
-	if Global.SPEED > 700 and NextWord:
+	print(Global.SPEED)
+	if Global.SPEED > 500 and NextWord:
 		DificultEnemy-=50
 	if Body !=null:
 		Posi=Body.global_position.x
 	if ListWords.size() > 0:
 		ShowWorlds()
 		SpawnLetter()
+	if Global.letter_total>=10 and liberar_combo :
+		print("CAIU AQUI!!!")
+		Global.COMBO=true
+		Global.letter_total=0
+		combo.visible=true
+		await  get_tree().create_timer(1).timeout
+		combo.visible=false
+		
 	
 
 func _input(event) -> void:
@@ -116,14 +129,17 @@ func Del(tecla: String, body):
 
 	if body == null or not is_instance_valid(body):
 		Hero_Inst.STATUS(status,area,"BAD!",Color.RED,4,button)
-
-	
+		Global.bad=true
 		
-		return
+		
+		
 	if tecla == currentLetter:
-		
+		Global.letter_global=currentLetter
+		Global.letter_total+=1	
 		calc(Posi)
-
+	else:
+		
+		Global.bad=true
 	
 	
 func calc(posiX):
@@ -135,17 +151,22 @@ func calc(posiX):
 	if Distancia <= -16 and Distancia>-35:
 		Global.Points+=30
 		Hero_Inst.Attack(Color.GREEN,"PERFECT! +30",area,status,1,button)
-		print(Distancia)
+		Global.bad=false
+		Global.click=true
+		print(Distancia,Global.click)
 	elif Distancia <= 10 and Distancia >= -50:
-		print(Distancia)
+		print(Distancia,Global.click)
 		Global.Points+=20
-
+		Global.bad=false
+		Global.click=true
 		Hero_Inst.Attack(Color.REBECCA_PURPLE,"GOOD +20",area,status,2,button)
 
 
-	else:
-		print(Distancia)
+	elif Distancia <= -50 and Distancia >= -70:
+		print(Distancia,Global.click)
 		Global.Points+=10
+		Global.bad=false
+		Global.click=true
 		Hero_Inst.Attack(Color.ORANGE,"MISS +10",area,status,3,button)
 		
 func _on_body_entered(body: Node2D) -> void:
@@ -155,12 +176,15 @@ func _on_body_exited(body: Node2D) -> void:
 	SwitchWord(w)
 	Body=null
 func SumSpeed(currentSpeed):
-	if currentSpeed <=650:
+	if currentSpeed <=550:
 		Global.SPEED+=50
+	if currentSpeed >= 550 :
+		liberar_combo=true
+		print("COMBO LIBERADO !!!:",liberar_combo)
 func ShowWorlds():
 	label.text=ListWords[w]["WorldPT"].to_upper()
-	palavra_en.text=Global.show_word_en
 	vida.text=str(Global.LIFE)
+	palavra_en.text=Global.show_word_en
 	pontuacao.text=str(Global.Points)
 	recorde.text=str(Global.recorde)
 	

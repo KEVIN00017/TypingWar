@@ -181,6 +181,13 @@ outline_color = Color(0, 0, 0, 1)
 shadow_size = 27
 shadow_color = Color(0.03706042, 0.2097264, 0.0019038359, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_6iyac"]
+font = ExtResource("4_kry3j")
+font_size = 90
+font_color = Color(0.99999994, 0.174173, 0.12721539, 1)
+shadow_size = 14
+shadow_color = Color(0, 0.08627451, 0.5372549, 0.8117647)
+
 [node name="Main" type="Node2D" unique_id=2144123645]
 script = ExtResource("1_kry3j")
 
@@ -329,6 +336,15 @@ metadata/_edit_group_ = true
 
 [node name="hero_position" type="Marker2D" parent="." unique_id=427879111]
 position = Vector2(225, 569)
+
+[node name="COMBO" type="Label" parent="." unique_id=967005529]
+visible = false
+offset_left = 536.0
+offset_top = 386.0
+offset_right = 896.0
+offset_bottom = 476.0
+text = "COMBO !!!!"
+label_settings = SubResource("LabelSettings_6iyac")
 
 [connection signal="body_entered" from="spaceTime" to="." method="_on_space_time_body_entered"]
 [connection signal="body_entered" from="spaceTime" to="." method="_on_body_entered"]

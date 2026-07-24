@@ -7,3 +7,8 @@ var LIFE:=33
 var PositionMain:=0
 var PositionEnemy:Vector2
 var show_word_en := ""
+var bad:=false
+var letter_global := ""
+var click=false
+var COMBO:=false
+var letter_total:=0
